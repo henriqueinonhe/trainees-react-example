@@ -1,3 +1,4 @@
+import { format, parse, parseISO } from "date-fns";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -27,6 +28,19 @@
 Cypress.Commands.add("getByTestId", (testId) =>
   cy.get(`[data-testid=${testId}]`)
 );
+Cypress.Commands.add("fillForm", (label, amount, date) => {
+  cy.getByTestId("EntryFormLabelInput")
+    .type("{selectall}{backspace}")
+    .type(label);
+  cy.getByTestId("EntryFormAmountInput")
+    .type("{selectall}{backspace}")
+    .type(amount);
+  cy.getByTestId("EntryFormDateInput").type(date);
+});
+Cypress.Commands.add("goToEntryForm", () => {
+  cy.visit("http://localhost:3000/");
+  cy.getByTestId("NewEntryButton").click();
+});
 Cypress.Commands.add(
   "findByTestId",
   {

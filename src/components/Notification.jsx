@@ -4,6 +4,6 @@ export const Notification = ({ state }) => {
   const { message, show } = state;
 
   return (
-    <div className={`${cx.container} ${show ? cx.show : ""}`}>❕ {message}</div>
+    <div className={`${cx.container} ${show ? cx.show : ""}`} data-testid="Notification" >❕ {message}</div>
   );
 };

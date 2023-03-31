@@ -22,10 +22,10 @@ export const DashboardEntry = ({ entry, onDelete }) => {
 
         <div className={cx.buttonContainer}>
           <Link href={routes.editEntry(entry.id)}>
-            <Button className={cx.editButton}>✏️</Button>
+            <Button className={cx.editButton} data-testid="EditEntryButton" >✏️</Button>
           </Link>
 
-          <Button className={cx.deleteButton} onClick={onDelete}>
+          <Button className={cx.deleteButton} onClick={onDelete} data-testid="DeletEntryButton" >
             🗑️
           </Button>
         </div>
